@@ -18,20 +18,35 @@ public class Persona implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_persona", unique=true, nullable=false)
-	private Integer idPersona;
+	private Long idPersona;
+
+	@Column(length=100)
+	private String direccion;
+
+	@Column(length=50)
+	private String email;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_nacimiento")
 	private Date fechaNacimiento;
 
-	@Column(nullable=false, length=1)
+	@Column(length=1)
 	private String genero;
 
-	@Column(nullable=false)
-	private Integer nombre;
+	@Column(name="id_ciudad")
+	private Integer idCiudad;
+
+	@Column(length=100)
+	private String nombre;
 
 	@Column(name="num_documento", nullable=false, length=20)
 	private String numDocumento;
+
+	@Column(name="razon_social", length=100)
+	private String razonSocial;
+
+	@Column(length=50)
+	private String telefono;
 
 	@Column(name="tipo_documento", nullable=false)
 	private Integer tipoDocumento;
@@ -39,12 +54,28 @@ public class Persona implements Serializable {
 	public Persona() {
 	}
 
-	public Integer getIdPersona() {
+	public Long getIdPersona() {
 		return this.idPersona;
 	}
 
-	public void setIdPersona(Integer idPersona) {
+	public void setIdPersona(Long idPersona) {
 		this.idPersona = idPersona;
+	}
+
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getFechaNacimiento() {
@@ -63,11 +94,19 @@ public class Persona implements Serializable {
 		this.genero = genero;
 	}
 
-	public Integer getNombre() {
+	public Integer getIdCiudad() {
+		return this.idCiudad;
+	}
+
+	public void setIdCiudad(Integer idCiudad) {
+		this.idCiudad = idCiudad;
+	}
+
+	public String getNombre() {
 		return this.nombre;
 	}
 
-	public void setNombre(Integer nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
@@ -77,6 +116,22 @@ public class Persona implements Serializable {
 
 	public void setNumDocumento(String numDocumento) {
 		this.numDocumento = numDocumento;
+	}
+
+	public String getRazonSocial() {
+		return this.razonSocial;
+	}
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	public String getTelefono() {
+		return this.telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 	public Integer getTipoDocumento() {
